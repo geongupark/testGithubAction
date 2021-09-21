@@ -1,0 +1,16 @@
+name: helloGithubAction
+
+# push event 발생 시마다 동작
+on: [push]
+
+jobs:
+     build:
+        runs-on: ubuntu-latest
+        steps:
+        # run 에는 실제 작동하는 코드를 넣어야 함
+        - name: hello world 출력~!
+          run: echo Hello, world!
+        - name: 디렉토리 출력!!
+          run: ls -al
+        - name: 파이썬 버전 출력!!
+          run: python -V
