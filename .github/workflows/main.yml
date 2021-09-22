@@ -3,7 +3,7 @@ name: helloGithubAction
 # push event 발생 시마다 동작
 on:
      schedule:
-          - cron: "*/30 * * * *"
+       - cron: "*/30 * * * *"
      
 jobs:
      build:
