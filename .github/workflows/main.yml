@@ -1,10 +1,8 @@
 name: helloGithubAction
 
 # push event 발생 시마다 동작
-on:
-     schedule:
-       - cron: "*/30 * * * *"
-     
+on: [push]
+
 jobs:
      build:
         runs-on: ubuntu-latest
