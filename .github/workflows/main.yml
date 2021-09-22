@@ -15,7 +15,7 @@ jobs:
     - name: 2. 환경 설정
       run: pip install -r requirements.txt
     - name: 3. 파이썬 실행
-      run: python test.py
+      run: python practice_crawling.py
     - name: Commit files
       run: |
         git config --local user.email "ggus.park@gmail.com"
