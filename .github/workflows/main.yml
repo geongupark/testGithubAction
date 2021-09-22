@@ -1,8 +1,10 @@
 name: helloGithubAction
 
 # push event 발생 시마다 동작
-on: [push]
-
+on:
+schedule:
+     - cron: "*/30 * * * *"
+     
 jobs:
      build:
         runs-on: ubuntu-latest
@@ -18,4 +20,4 @@ jobs:
         - name: 4. 환경 설정
           run: pip install -r requirements.txt
         - name: 5. 파이썬 실행
-          run: python test1.py
+          run: python practice_crawling.py
