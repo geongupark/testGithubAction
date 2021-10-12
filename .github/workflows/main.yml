@@ -1,7 +1,8 @@
 name: helloGithubAction
 
 on: [push]
-
+	schedule:
+    - cron: '*/50 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,7 +16,7 @@ jobs:
     - name: 2. 환경 설정
       run: pip install -r requirements.txt
     - name: 3. 파이썬 실행
-      run: python practice_crawling.py
+      run: python Sise_trans_style.py
     - name: Commit files
       run: |
         git config --local user.email "ggus.park@gmail.com"
