@@ -2,7 +2,7 @@ name: helloGithubAction
 
 on: [push]
 	schedule:
-    - cron: '*/50 * * * *'
+	- cron: '*/50 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
