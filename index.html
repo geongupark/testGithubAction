@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- [Start] import library (bootstrap, chart.min.js...) -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Trends</title>
+<!-- bootstrap v5.1.2-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- chart.min.js v3.5.1-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+<!-- date picker-->
+<!-- 
+* https://programmer93.tistory.com/5 
+* https://blog.edit.kr/entry/Bootstrap-4-%EB%8B%AC%EB%A0%A5-datetimepicker-Bootstrap-3%EB%B2%84%EC%A0%84-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C-%EB%B2%84%EC%A0%84-%EC%9D%B8%EA%B8%B0-%EB%8B%AC%EB%A0%A5
+-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css"/>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"/>
+<!-- [End] import library (bootstrap, chart.min.js...) -->
+</head>
+<body>
+<!-- [Start] Navigation bar (menu bar) -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+	<a class="navbar-brand" href="index.html">Market Trends</a>
+	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarScroll">
+		<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+			<li class="nav-item">
+			<a class="nav-link active" aria-current="page" href=""index.html"">Home</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="https://finance.naver.com/">네이버 증권</a>
+			</li>
+			<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="https://finance.naver.com/sise/" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			국내 증시 </a>
+			<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+				<li><a class="dropdown-item" href="https://finance.naver.com/sise/sise_trans_style.naver">투자자별</a></li>
+				<li><a class="dropdown-item" href="https://finance.naver.com/sise/sise_index.naver?code=KOSPI">코스피</a></li>
+				<li>
+				<hr class="dropdown-divider">
+				</li>
+				<li><a class="dropdown-item" href="#">Something else here</a></li>
+			</ul>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link disabled">Link</a>
+			</li>
+		</ul>
+		<form class="d-flex">
+			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success" type="submit">Search</button>
+		</form>
+	</div>
+</div>
+</nav>
+<!-- [End] Navigation bar (menu bar) -->
+<br>
+<div class="container">
+	<div class="row">
+		<!-- [Start] datetimepicker-->
+		<div class='col-md-2 col-xs-3'>
+			<div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+				<label for="datetimepicker1" class="col-md-2" style="font-size:1.5rem">S:</label>
+				<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1">
+				<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+					<!-- setting font size using style property -->
+					<div class="input-group-text" style="font-size : 1.5rem">
+						<i class="fa fa-calendar"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='col-md-2 col-xs-3'>
+			<div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+				<label for="datetimepicker2" class="col-md-2" style="font-size:1.5rem">E:</label>
+				<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2">
+				<div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+					<!-- setting font size using style property -->
+					<div class="input-group-text" style="font-size : 1.5rem">
+						<i class="fa fa-calendar"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- [End] datetimepicker-->
+		<div class="col-12">
+			<br>
+		</div>
+		<!-- [Start] Daily chart form-->
+		<div class="col-12">
+			<div class="card text-dark bg-light mb-3">
+				<div class="card-header">
+					 일일 정보 그래프
+				</div>
+				<div class="card-body">
+					<h5 class="card-title"></h5>
+					<p class="card-text">
+						<canvas id="dailyChart"></canvas>
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- [End] Daily chart form-->
+	</div>
+</div>
+</body>
+<!-- [Start] Setting the datetimepicker-->
+<script type="text/javascript">
+	$(function () {
+		$('#datetimepicker1').datetimepicker({defaultDate: moment().add(-7,'days')}); // 2021 5:12 PM-10-04
+		$('#datetimepicker2').datetimepicker({defaultDate: moment(), minDate: moment().add(-7,'days')}); // 2021 5:12 PM-10-11
+		
+		console.log("here!?")
+		<!-- Event Handler -->
+		$("#datetimepicker1").on("change.datetimepicker", function (e) {
+			console.log($('#datetimepicker1').find("input").val());
+			$('#datetimepicker2').datetimepicker('minDate', e.date);
+			// Remove chart
+			window.dailyLine.destroy();
+			// Make chart
+			draw_daily_chart()
+		});
+		$("#datetimepicker2").on("change.datetimepicker", function (e) {
+			console.log($('#datetimepicker2').find("input").val());
+			$('#datetimepicker1').datetimepicker('maxDate', e.date);
+			// Remove chart
+			window.dailyLine.destroy();
+			// Make chart
+			draw_daily_chart()
+		});
+	});
+</script>
+<!-- [End] Setting the datetimepicker-->
+<!-- [Start] Get daily data-->
+<script type="text/javascript" src="json/daily.json"></script>
+<!-- [End] Get daily data-->
+<!-- [Start] Draw daily trend chart-->
+
+<script type="text/javascript">
+	function draw_daily_chart() {
+		data = param;
+		
+		// regex : RegExp.exec(string)
+		// * reference : https://jam-ws.tistory.com/16
+		let tmp_list = [];
+		let reg = /(\d*)\/(\d*)\/(\d*)\s(\d*):(\d*)\s(.*)/;
+		tmp_list = reg.exec($('#datetimepicker1').find("input").val()); // group[1] : month, group[2] : date, group[3] : year
+		var start_date = [tmp_list[3], tmp_list[1], tmp_list[2]].join('-');
+		tmp_list = reg.exec($('#datetimepicker2').find("input").val()); // group[1] : month, group[2] : date, group[3] : year
+		var end_date = [tmp_list[3], tmp_list[1], tmp_list[2]].join('-');
+		
+		// check date
+		console.log(start_date);
+		console.log(end_date);
+		
+		// Make daily chart data
+		let daily_chart_label = [];
+		let daily_chart_input_1 = [];
+		let daily_chart_input_2 = [];
+		let daily_chart_input_3 = [];
+		let daily_chart_input_4 = [];
+		let daily_chart_input_5 = [];
+		let test_date = [];
+    
+		for (let variable of data) {
+			tmp_list = variable.날짜.split('.')
+			tmp_list[0] = String(2000 + Number(tmp_list[0]))
+			var target_date = tmp_list.join('-')
+			if(start_date <= target_date && target_date <= end_date){
+				daily_chart_label.push(variable.날짜)
+				daily_chart_input_1.push(variable.개인)
+				daily_chart_input_2.push(variable.외국인)
+				daily_chart_input_3.push(variable.기관계)
+				daily_chart_input_4.push(variable.금융투자)
+				daily_chart_input_5.push(variable.연기금)
+			}			
+		}
+		var config = {
+			type: 'line',
+			data: {
+				labels: daily_chart_label,
+				datasets: [{
+					label: '개인',
+					backgroundColor: 'red',
+					borderColor: 'red',
+					data: daily_chart_input_1,
+					fill: false,
+				},
+				{
+					label: '외국인',
+					backgroundColor: 'blue',
+					borderColor: 'blue',
+					data: daily_chart_input_2,
+					fill: false,
+				},
+				{
+					label: '기관계',
+					backgroundColor: 'green',
+					borderColor: 'green',
+					data: daily_chart_input_3,
+					fill: false,
+				},
+				{
+					label: '금융투자',
+					backgroundColor: 'orange',
+					borderColor: 'orange',
+					data: daily_chart_input_4,
+					fill: false,
+				},
+				{
+					label: '연기금',
+					backgroundColor: 'black',
+					borderColor: 'black',
+					data: daily_chart_input_5,
+					fill: false,
+				}
+			  ]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Daily trends'
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+					}],
+				}
+			}
+		};
+		var ctx = document.getElementById('dailyChart').getContext('2d');
+		window.dailyLine = new Chart(ctx, config);
+	}
+
+	$(function () {
+		draw_daily_chart();
+	});
+</script>
+<!-- [End] Draw daily trend chart-->
+</html>
