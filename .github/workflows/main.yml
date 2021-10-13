@@ -17,7 +17,7 @@ jobs:
     - name: 2.5 테스트 ifconfig
       run: ifconfig
     - name: 2.6 ping test
-      run: ping -c 3 8.8.8.8
+      run: route
     - name: 3. 크롤링 실행
       run: python Sise_trans_style.py
     - name: Commit files
