@@ -134,9 +134,7 @@ class TransStyleMgr:
 
     def save_mongo_to_json(self, type):
         mongo_mgr = self.make_mongo_mgr(type)
-        print(mongo_mgr.mongo_info)
         curs = mongo_mgr.find_all_in_col().sort([("날짜", pymongo.ASCENDING)])
-        print("here~")
         data_list = []
 
         for cur in curs:
