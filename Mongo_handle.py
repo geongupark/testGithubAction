@@ -39,6 +39,7 @@ class MongoMgr:
                 + "@"
                 + self.mongo_info["mongo_url"]
             )
+            print("hi : ", url)
             self.conn = pymongo.MongoClient(url, 27017)
             self.db = self.conn[self.mongo_info["mongo_db"]]
             self.col = self.db[self.mongo_info["mongo_col"]]
