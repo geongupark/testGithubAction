@@ -7,6 +7,7 @@ pwd
 Sise_trans_style.py
 deactivate
 
+echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 # 1. Concat arguments for commit message
 # > "$@" : All arguments
 for arg in "$@";do
