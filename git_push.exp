@@ -2,7 +2,6 @@
 spawn bash -c "git push";
 expect -re "Username"
 send "geongupark\r"
-
 expect -re "Password"
 send "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\r"
 interact
