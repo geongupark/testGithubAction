@@ -19,7 +19,5 @@ args="$(date +%Y%m%d), ""${args}"
 
 # 3. Command for commit
 # > && : Run commands sequentially
-git add . && git commit -m "${args}" && git push <<EOF
-geongupark
-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
-EOF
+git add . && git commit -m "${args}" && ./git_push.exp
+
