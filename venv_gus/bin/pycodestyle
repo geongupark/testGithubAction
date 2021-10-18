@@ -1,8 +1,0 @@
-#!/home/gus/001_python_prject/211003_crawling_naver_finance/venv_gus/bin/python3
-# -*- coding: utf-8 -*-
-import re
-import sys
-from pycodestyle import _main
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(_main())
