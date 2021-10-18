@@ -148,7 +148,7 @@ class TransStyleMgr:
     def run_parsing_daily(self):
         self.get_trend_url("daily")
         self.get_trend_end_page("daily")
-        # self.get_trend_table("daily")
+        self.get_trend_table("daily")
         self.save_mongo_to_json("daily")
 
     def run_parsing(self):
