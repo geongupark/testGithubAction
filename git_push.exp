@@ -1,4 +1,5 @@
 #!/usr/bin/expect
+
 spawn bash -c "git push";
 
 expect -re "Username"
