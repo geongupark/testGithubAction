@@ -4,7 +4,7 @@
 CUR_PATH=$(pwd)
 source $CUR_PATH/venv_gus/bin/activate
 pwd
-Sise_trans_style.py
+python3 $CUR_PATH/Sise_trans_style.py
 deactivate
 
 echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
