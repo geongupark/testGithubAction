@@ -5,5 +5,5 @@ expect -re "Username"
 send "geongupark\r"
 interact
 expect -re "Password"
-send "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"
+send "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\r"
 interact
