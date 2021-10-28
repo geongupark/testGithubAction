@@ -1,5 +1,6 @@
 #!/bin/bash
-
+cd /home/gus/schedule_project/sise_market_trend/testGithubAction/
+echo $(pwd)
 # 0. Execute main pgm in venv
 CUR_PATH=$(pwd)
 source $CUR_PATH/../venv_gus/bin/activate
